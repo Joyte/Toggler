@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme test</title>
+    <link rel="stylesheet" href="theme.css">
+    <script src="libraries.js"></script>
+</head>
+
+<body>
+    <div id="toggler-container">
+    </div>
+    <script>
+        const toggler = new Toggler("toggler-container", {
+            "buttons": {
+                "light": ["/svg/sun.svg", () => {
+                    setCookie("theme", "light", 365)
+                    document.body.setAttribute("data-theme", "light")
+                }],
+                "dark": ["/svg/moon.svg", () => {
+                    setCookie("theme", "dark", 365)
+                    document.body.setAttribute("data-theme", "dark")
+                }],
+                "sync": ["/svg/around.svg", () => {
+                    setCookie("theme", "sync", 365)
+                    document.body.setAttribute("data-theme", "sync")
+                }]
+            },
+            "slidersize": 50,
+            "initial": getCookie("theme") || "sync",
+        })
+    </script>
+</body>
+
+</html>

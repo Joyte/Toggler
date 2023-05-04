@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+}
+
+/* Light mode */
+[data-theme="light"] {
+    --light-highlight-color: #E5383B;
+    --dark-highlight-color: #BA181B;
+
+    --foreground-color: #161A1D;
+    --background-color: #F5F3F4;
+    --black: #0B090A;
+}
+
+[data-theme="light"] .svg-filter {
+    filter: invert(86%) sepia(2%) saturate(124%) hue-rotate(277deg) brightness(110%) contrast(100%);
+}
+
+
+/* Dark mode */
+[data-theme="dark"] {    
+    --light-highlight-color: #E5383B;
+    --dark-highlight-color: #BA181B;
+
+    --foreground-color: #F5F3F4;
+    --background-color: #161A1D;
+    --black: #0B090A;
+}
+
+[data-theme="dark"] .svg-filter {
+    filter: invert(6%) sepia(2%) saturate(5680%) hue-rotate(172deg) brightness(92%) contrast(91%);
+}
+
+
+/* Sync mode */
+@media (prefers-color-scheme: dark) {
+    [data-theme="sync"] {
+        --light-highlight-color: #E5383B;
+        --dark-highlight-color: #BA181B;
+
+        --foreground-color: #F5F3F4;
+        --background-color: #161A1D;
+        --black: #0B090A;
+    }
+
+    [data-theme="sync"] .svg-filter {
+        filter: invert(6%) sepia(2%) saturate(5680%) hue-rotate(172deg) brightness(92%) contrast(91%);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    [data-theme="sync"] {
+        --light-highlight-color: #E5383B;
+        --dark-highlight-color: #BA181B;
+
+        --foreground-color: #161A1D;
+        --background-color: #F5F3F4;
+        --black: #0B090A;
+    }
+
+    [data-theme="sync"] .svg-filter {
+        filter: invert(86%) sepia(2%) saturate(124%) hue-rotate(277deg) brightness(110%) contrast(100%);
+    }
+}

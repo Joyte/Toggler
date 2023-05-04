@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggler test</title>
+    <link rel="stylesheet" href="theme.css">
+    <script src="libraries.js"></script>
+</head>
+
+<body data-theme="sync">
+    <h1>Measurement Test</h1>
+    <div id="toggler-container">
+    </div>
+    <script>
+        metricHandler = () => {
+            console.log("metric")
+        }
+
+        imperialHandler = () => {
+            console.log("imperial")
+        }
+
+        const toggler = new Toggler("toggler-container", {
+            "slidersize": 200,
+            "inital": "metric",
+            "buttons": {
+                "metric": ["/svg/metric.svg", metricHandler],
+                "imperial": ["/svg/imperial.svg", imperialHandler]
+            }
+        })
+    </script>
+</body>
+
+</html>
