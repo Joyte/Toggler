@@ -4,33 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggler test</title>
-    <link rel="stylesheet" href="theme.css">
-    <script src="libraries.js"></script>
+    <title>Toggler - Measurement</title>
+    <link rel="stylesheet" href="/theme.css">
+    <script src="/libraries.js"></script>
 </head>
 
 <body data-theme="sync">
-    <h1>Measurement Test</h1>
+    <h1>Measurement</h1>
     <div id="toggler-container">
     </div>
+    <p style="text-align: center;">
+        <a href="/">Back</a>
+    </p>
     <script>
-        metricHandler = () => {
+        function metricHandler() {
             console.log("metric")
+            setCookie("measurement", "metric", 365)
         }
 
-        imperialHandler = () => {
+        function imperialHandler() {
             console.log("imperial")
+            setCookie("measurement", "imperial", 365)
         }
 
         const toggler = new Toggler("toggler-container", {
             "slidersize": 200,
-            "inital": "metric",
+            "initial": getCookie("measurement") || "metric",
             "buttons": {
                 "metric": ["/svg/metric.svg", metricHandler],
                 "imperial": ["/svg/imperial.svg", imperialHandler]
             }
         })
     </script>
+    <style>
+        body {
+            font-size: 1.5rem;
+        }
+    </style>
 </body>
 
 </html>

@@ -3,35 +3,60 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme test</title>
-    <link rel="stylesheet" href="theme.css">
-    <script src="libraries.js"></script>
+    <title>Toggler</title>
+    <link rel="stylesheet" href="/theme.css">
+    <script src="/settheme.js"></script>
+    <script src="/libraries.js"></script>
 </head>
 
 <body>
-    <div id="toggler-container">
-    </div>
+    <h1>Toggler Examples</h1>
+    <ul>
+        <li><a href="examples/theme.html">Change theme</a></li>
+        <li><a href="examples/measurements.html">Change measurement</a></li>
+        <li><a href="examples/regular.html">Regular HTML</a></li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Theme</th>
+                <th>Measurement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="theme"></td>
+                <td id="measurement"></td>
+            </tr>
+        </tbody>
+    </table>
     <script>
-        const toggler = new Toggler("toggler-container", {
-            "buttons": {
-                "light": ["/svg/sun.svg", () => {
-                    setCookie("theme", "light", 365)
-                    document.body.setAttribute("data-theme", "light")
-                }],
-                "dark": ["/svg/moon.svg", () => {
-                    setCookie("theme", "dark", 365)
-                    document.body.setAttribute("data-theme", "dark")
-                }],
-                "sync": ["/svg/around.svg", () => {
-                    setCookie("theme", "sync", 365)
-                    document.body.setAttribute("data-theme", "sync")
-                }]
-            },
-            "slidersize": 50,
-            "initial": getCookie("theme") || "sync",
-        })
+        document.getElementById("theme").innerHTML = getCookie("theme") || "sync"
+        document.getElementById("measurement").innerHTML = getCookie("measurement") || "metric"
     </script>
+    <style>
+        body {
+            font-size: 1.5rem;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        table,
+        th,
+        td {
+            border: 5px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+    </style>
 </body>
 
 </html>
