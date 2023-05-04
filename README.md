@@ -11,7 +11,7 @@ const toggler = new Toggler("toggler-container", {
         "dark": ["/svg/moon.svg", () => {
             // Code to execute when the button is clicked
         }]
-    }
+    },
     "initial": "light",
 })
 ```
